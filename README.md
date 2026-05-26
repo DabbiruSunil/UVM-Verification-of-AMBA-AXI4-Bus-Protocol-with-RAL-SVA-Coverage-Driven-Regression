@@ -1,0 +1,2 @@
+# UVM-Verification-of-AMBA-AXI4-Bus-Protocol-with-RAL-SVA-Coverage-Driven-Regression
+A parameterized SystemVerilog UVM 1.2 verification environment for the AMBA AXI4 bus protocol, featuring a virtual sequencer, master/slave agents, reference memory model scoreboard, RAL-based CSR abstraction, SVA protocol assertions, and functional coverage closure — runnable directly on EDA Playground (Aldec Riviera-PRO).
