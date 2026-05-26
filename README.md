@@ -1,6 +1,6 @@
 # UVM Verification of AMBA AXI4 Bus Protocol with RAL, SVA & Coverage-Driven Regression
 
-A parameterized **SystemVerilog UVM 1.2** verification environment for the **AMBA AXI4 bus protocol**, featuring a virtual sequencer, master/slave agents, reference memory model scoreboard, RAL-based CSR abstraction, SVA protocol assertions, and functional coverage closure — runnable directly on **EDA Playground (Aldec Riviera-PRO)**.
+A parameterized **SystemVerilog UVM 1.2** verification environment for the **AMBA AXI4 bus protocol**, featuring a virtual sequencer, master/slave agents, reference memory model scoreboard, RAL-based CSR abstraction, SVA protocol assertions, and functional coverage closure which is runnable directly on **EDA Playground (Aldec Riviera-PRO)**.
 
 ---
 
@@ -14,24 +14,24 @@ The DUT is a 256-location AXI4-compliant slave memory written in synthesizable S
 
 ## ✨ Features
 
-- **Parameterized Environment** — configurable data width (32/64/128-bit) and address width (32/64-bit) via interface parameters
-- **Virtual Sequencer** — coordinates master agent sequences for end-to-end multi-scenario regression
-- **Reference Memory Model** — scoreboard reconstructs expected read data from all prior writes and compares against DUT responses, catching data-integrity bugs beyond signal-level checking
-- **RAL Model (Register Abstraction Layer)** — models peripheral CSR fields (`enable`, `mode`) using `uvm_reg` and `uvm_reg_block`, mirroring real SoC verification methodology
-- **SVA Protocol Assertions** — three concurrent properties enforce AXI4 handshake rules:
+- **Parameterized Environment** : configurable data width (32/64/128-bit) and address width (32/64-bit) via interface parameters
+- **Virtual Sequencer** : coordinates master agent sequences for end-to-end multi-scenario regression
+- **Reference Memory Model** : scoreboard reconstructs expected read data from all prior writes and compares against DUT responses, catching data-integrity bugs beyond signal-level checking
+- **RAL Model (Register Abstraction Layer)** : models peripheral CSR fields (`enable`, `mode`) using `uvm_reg` and `uvm_reg_block`, mirroring real SoC verification methodology
+- **SVA Protocol Assertions** : three concurrent properties enforce AXI4 handshake rules:
   - `AWVALID` must not deassert before `AWREADY`
   - `ARVALID` must not deassert before `ARREADY`
   - `WVALID` must not deassert before `WREADY`
-- **Functional Coverage** — covergroup with cross-coverage targeting:
+- **Functional Coverage** : covergroup with cross-coverage targeting:
   - Burst types: FIXED, INCR, WRAP
   - Burst lengths: single, short, medium, long
   - Response codes: OKAY, SLVERR, DECERR
   - QoS levels: low, mid, high
   - Lock modes: normal, exclusive
 - **Three Sequence Types**:
-  - `axi4_rand_seq` — constrained-random write/read transactions (30 by default)
-  - `axi4_exclusive_seq` — exclusive read followed by exclusive write (`ARLOCK/AWLOCK`)
-  - `axi4_error_seq` — out-of-range address injection to provoke error responses
+  - `axi4_rand_seq` : constrained-random write/read transactions (30 by default)
+  - `axi4_exclusive_seq` : exclusive read followed by exclusive write (`ARLOCK/AWLOCK`)
+  - `axi4_error_seq` : out-of-range address injection to provoke error responses
 
 ---
 
